@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AACProject</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="tab_home">首页</string>
+    <string name="tab_account">账户</string>
+    <string name="tab_invest">投资</string>
+    <string name="tab_discovery">发现</string>
+
+
+</resources>
