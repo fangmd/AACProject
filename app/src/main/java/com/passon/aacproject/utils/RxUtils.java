@@ -2,6 +2,7 @@ package com.passon.aacproject.utils;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableTransformer;
+import io.reactivex.SingleTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
@@ -26,6 +27,14 @@ public class RxUtils {
                         .observeOn(AndroidSchedulers.mainThread());
             }
         };
+    }
+
+    /**
+     * 线程切换，生命周期绑定
+     */
+    public static <T> SingleTransformer<T, T> io2MainSingle() {
+        return upstream -> upstream.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
 }

@@ -54,7 +54,7 @@ public class AccountViewModel extends BaseViewModel {
                 postError(code, msg);
             }
         };
-        UserRepository.getInstance().getUserInfo(observer);
+        new UserRepository().getUserInfo(observer);
         addDisposable(observer);
     }
 
