@@ -32,7 +32,6 @@ public class RxService {
 
     /** retrofit service缓存 */
     private static Map<String, Object> retrofitServices = new HashMap<>();
-    private static Retrofit sRetrofit;
 
     /**
      * 获取OkHttp
@@ -88,11 +87,7 @@ public class RxService {
      * @return Retrofit
      */
     public static Retrofit getRetrofit(String url) {
-
-        if (sRetrofit != null && C.BASE_URL.equals(url)) {
-            return sRetrofit;
-        }
-        return sRetrofit = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .baseUrl(url)
                 .client(getOkHttpClient())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//使用rxjava
