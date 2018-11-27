@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.passon.aacproject.R;
 import com.passon.aacproject.base.BaseActivity;
+import com.passon.aacproject.entity.ErrorEnvelope;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,5 +26,10 @@ public class SplashActivity extends BaseActivity {
 
         Disposable subscribe = Observable.timer(500, TimeUnit.MILLISECONDS)
                 .subscribe(aLong -> mViewModel.showMain(SplashActivity.this));
+    }
+
+    @Override
+    protected void onError(ErrorEnvelope errorEnvelope) {
+        super.onError(errorEnvelope);
     }
 }

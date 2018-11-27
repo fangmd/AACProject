@@ -28,6 +28,7 @@ public class RxService {
     private static RequestInterceptor requestInterceptor = new RequestInterceptor();
     private static HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
     private static CacheInterceptor cacheInterceptor = new CacheInterceptor();
+    private static NetWorkInterceptor sNetWorkInterceptor = new NetWorkInterceptor();
 
     /** retrofit service缓存 */
     private static Map<String, Object> retrofitServices = new HashMap<>();
@@ -56,6 +57,7 @@ public class RxService {
                 .addNetworkInterceptor(cacheInterceptor)//缓存拦截器
                 .addInterceptor(requestInterceptor)//请求拦截器
                 .addInterceptor(loggingInterceptor)//日志拦截器
+                .addInterceptor(sNetWorkInterceptor)//日志拦截器
                 .connectTimeout(TIMEOUT_CONNECTION, TimeUnit.SECONDS)//time out
                 .readTimeout(TIMEOUT_READ, TimeUnit.SECONDS)//读超时
                 .writeTimeout(TIMEOUT_READ, TimeUnit.SECONDS)//写超时
