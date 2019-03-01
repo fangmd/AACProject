@@ -3,8 +3,6 @@ package com.passon.aacproject.module;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 
 import com.passon.aacproject.R;
 import com.passon.aacproject.base.BaseActivity;
@@ -17,6 +15,8 @@ import com.passon.aacproject.module.investment.InvestFragment;
 import com.passon.aacproject.widgets.NoScrollViewPager;
 import com.passon.aacproject.widgets.bottomtab.BottomTabLayout;
 
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

@@ -1,11 +1,7 @@
 package com.passon.aacproject.module.account;
 
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +11,11 @@ import com.passon.aacproject.R;
 import com.passon.aacproject.base.LazyBaseFragment;
 import com.passon.aacproject.entity.User;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProviders;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -65,9 +66,10 @@ public class AccountFragment extends LazyBaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        LifecycleOwner lifecycleOwner = getViewLifecycleOwner();
         mAccountViewModel = ViewModelProviders.of(this).get(AccountViewModel.class);
-        mAccountViewModel.user().observe(this, this::user);
-        mAccountViewModel.cnt().observe(this, this::cnt);
+        mAccountViewModel.user().observe(lifecycleOwner, this::user);
+        mAccountViewModel.cnt().observe(lifecycleOwner, this::cnt);
     }
 
     private void cnt(Long aLong) {

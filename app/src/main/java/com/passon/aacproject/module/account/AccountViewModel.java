@@ -1,8 +1,5 @@
 package com.passon.aacproject.module.account;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-
 import com.lhjx.loglib.LoggerUtils;
 import com.passon.aacproject.base.BaseViewModel;
 import com.passon.aacproject.entity.BaseResponse;
@@ -13,6 +10,8 @@ import com.passon.aacproject.utils.RxUtils;
 
 import java.util.concurrent.TimeUnit;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 

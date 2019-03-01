@@ -3,7 +3,6 @@ package com.passon.aacproject.widgets.bottomtab;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,6 +16,8 @@ import com.passon.aacproject.utils.ResGetUtils;
 import com.passon.aacproject.widgets.NoScrollViewPager;
 
 import java.util.ArrayList;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by cfp on 16-7-12.
