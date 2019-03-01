@@ -14,7 +14,6 @@ public class UserRepository implements IUserRepository {
     private final IUserRepository mInstance;
 
     public UserRepository() {
-//        mInstance = UserRepositoryHttpClient.getInstance();
         mInstance = UserRepositoryRetrofit.getInstance();
     }
 
