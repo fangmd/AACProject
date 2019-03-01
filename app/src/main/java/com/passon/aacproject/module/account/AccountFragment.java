@@ -65,7 +65,6 @@ public class AccountFragment extends LazyBaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         mAccountViewModel = ViewModelProviders.of(this).get(AccountViewModel.class);
         mAccountViewModel.user().observe(this, this::user);
         mAccountViewModel.cnt().observe(this, this::cnt);
