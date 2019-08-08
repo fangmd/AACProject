@@ -1,12 +1,12 @@
 package com.passon.aacproject.module.account;
 
-import com.lhjx.loglib.LoggerUtils;
 import com.passon.aacproject.base.BaseViewModel;
-import com.passon.aacproject.entity.BaseResponse;
 import com.passon.aacproject.entity.User;
 import com.passon.aacproject.repository.UserRepository;
-import com.passon.aacproject.service.base.ErrorHandleDisableObserver;
-import com.passon.aacproject.utils.RxUtils;
+import com.passon.aacproject.service.BaseNetSingleDisableObserver;
+import com.passon.commonutils.RxUtils;
+import com.passon.loglib.LoggerUtils;
+import com.passon.netlib.BaseResp;
 
 import java.util.concurrent.TimeUnit;
 
@@ -41,20 +41,37 @@ public class AccountViewModel extends BaseViewModel {
     }
 
     private void getUserInfo() {
-        ErrorHandleDisableObserver<BaseResponse<User>> observer = new ErrorHandleDisableObserver<BaseResponse<User>>() {
+//        BaseNetDisableObserver<BaseResp<User>> observer = new BaseNetDisableObserver<BaseResp<User>>() {
+//
+//            @Override
+//            public void onNext(BaseResp<User> userBaseResponse) {
+//                mUserMutableLiveData.postValue(userBaseResponse.data);
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                postError(C.ErrorCode.UNKNOWN, e.getMessage());
+//            }
+//        };
+        UserRepository userRepository = new UserRepository();
+//        userRepository.getUserInfo(observer);
+//        addDisposable(observer);
 
+
+        // single
+        BaseNetSingleDisableObserver<BaseResp<User>> singleObserver = new BaseNetSingleDisableObserver<BaseResp<User>>() {
             @Override
-            public void onSuccess(BaseResponse<User> userBaseResponse) {
-                mUserMutableLiveData.postValue(userBaseResponse.data);
+            public void onSuccess(BaseResp<User> userBaseResp) {
+
             }
 
             @Override
-            public void onFailure(int code, String msg) {
-                postError(code, msg);
+            public void onError(Throwable e) {
+
             }
         };
-        new UserRepository().getUserInfo(observer);
-        addDisposable(observer);
+        userRepository.getUserInfo2().subscribe(singleObserver);
+        addDisposable(singleObserver);
     }
 
     public void startInterval() {

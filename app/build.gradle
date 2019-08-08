@@ -33,7 +33,7 @@ project.ext {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -42,25 +42,19 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
-    // Http client
-    implementation "com.squareup.retrofit2:retrofit:2.5.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
-    implementation "com.squareup.okhttp3:okhttp:3.14.1"
-    implementation "com.squareup.okhttp3:logging-interceptor:3.14.0"
-    implementation "com.google.code.gson:gson:2.8.5"
-    // ReactiveX
-    implementation "io.reactivex.rxjava2:rxjava:2.2.7"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+
     // aac
-    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0-alpha01'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0-alpha02'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha02'
     //butterknife
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
-    // custom
-    implementation 'com.lhjx.loglib:loglib:1.0.0'
+
     //view
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-3'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-3'
+
+    implementation 'com.passon.loglib:loglib:1.0.1'
+    implementation 'com.passon.netlib:netlib:0.0.3'
+    implementation 'com.passon.commonutils:commonutils:0.0.2'
 }

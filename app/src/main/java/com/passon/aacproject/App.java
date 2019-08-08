@@ -3,7 +3,9 @@ package com.passon.aacproject;
 import android.app.Application;
 import android.util.Log;
 
-import com.lhjx.loglib.LoggerUtils;
+import com.passon.commonutils.CommonUtils;
+import com.passon.loglib.LoggerUtils;
+import com.passon.netlib.NetManager;
 
 import androidx.multidex.MultiDex;
 
@@ -21,6 +23,13 @@ public class App extends Application {
         MultiDex.install(this);
         sInstance = this;
         Log.d("tag", "onCreate: ");
+
+        initLib();
+    }
+
+    private void initLib() {
         LoggerUtils.init(BuildConfig.DEBUG);
+        NetManager.init(sInstance, C.BASE_URL, BuildConfig.DEBUG);
+        CommonUtils.init(this);
     }
 }

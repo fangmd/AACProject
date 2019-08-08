@@ -9,7 +9,10 @@ import android.widget.TextView;
 
 import com.passon.aacproject.R;
 import com.passon.aacproject.base.LazyBaseFragment;
+import com.passon.aacproject.entity.ErrorEnvelope;
 import com.passon.aacproject.entity.User;
+import com.passon.commonutils.ToastUtils;
+import com.passon.netlib.NetManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,11 +59,16 @@ public class AccountFragment extends LazyBaseFragment {
     public void lazyLoad() {
         mAccountViewModel.init();
 
-        if (mFirst) {
-            mAccountViewModel.startInterval();
-            mFirst = false;
-        }
+//        if (mFirst) {
+//            mAccountViewModel.startInterval();
+//            mFirst = false;
+//        }
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        NetManager.getBaseUrl();
     }
 
     @Override
@@ -70,6 +78,11 @@ public class AccountFragment extends LazyBaseFragment {
         mAccountViewModel = ViewModelProviders.of(this).get(AccountViewModel.class);
         mAccountViewModel.user().observe(lifecycleOwner, this::user);
         mAccountViewModel.cnt().observe(lifecycleOwner, this::cnt);
+        mAccountViewModel.onError().observe(lifecycleOwner, this::onError);
+    }
+
+    private void onError(ErrorEnvelope errorEnvelope) {
+        ToastUtils.show(getContext(), errorEnvelope.message);
     }
 
     private void cnt(Long aLong) {

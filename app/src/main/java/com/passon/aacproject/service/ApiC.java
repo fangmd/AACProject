@@ -10,7 +10,7 @@ public abstract class ApiC {
 
         /** 获取用户信息 */
 //        public static final String GET_INFO = "/user/info";
-        String GET_INFO = "https://raw.githubusercontent.com/fangmd/mvntest/master/user";
+        String GET_INFO = "https://raw.githubusercontent.com/fangmd/fangmd.github.io/master/user";
 
     }
 
