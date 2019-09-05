@@ -44,8 +44,8 @@ dependencies {
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 
     // aac
-    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0-alpha02'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha02'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0-alpha03'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha03'
     //butterknife
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'

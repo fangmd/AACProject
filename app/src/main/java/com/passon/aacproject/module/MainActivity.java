@@ -39,7 +39,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
         Fragment[] tabs = new Fragment[4];
         tabs[0] = HomeFragment.newInstance();
         tabs[1] = InvestFragment.newInstance();
