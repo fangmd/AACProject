@@ -1,11 +1,10 @@
 package com.passon.aacproject.base;
 
+import com.passon.aacproject.entity.ErrorEnvelope;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
-import com.passon.aacproject.entity.ErrorEnvelope;
-
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
