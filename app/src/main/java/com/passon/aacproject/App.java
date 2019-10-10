@@ -29,7 +29,7 @@ public class App extends Application {
 
     private void initLib() {
         LoggerUtils.init(BuildConfig.DEBUG);
-        NetManager.init(sInstance, C.BASE_URL, BuildConfig.DEBUG);
+        NetManager.init(sInstance, BuildConfig.API_URL, BuildConfig.DEBUG);
         CommonUtils.init(this);
     }
 }

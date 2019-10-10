@@ -1,0 +1,10 @@
+ext {
+    apiUrl = [
+            releaseUrl: '"https://api.xxxx.com"',
+            testUrl   : '"https://test.xxxx.com"',
+    ]
+
+    android = [
+            testAppName: "测试版",
+    ]
+}

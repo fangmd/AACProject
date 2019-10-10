@@ -12,9 +12,36 @@ android {
         multiDexEnabled = true
     }
     buildTypes {
-        release {
+        debug {
+            buildConfigField("String", "API_URL", rootProject.ext.apiUrl.testUrl)
+        }
+        debugTest {
+            versionNameSuffix "-test"
+//            resValue "string", "app_name", rootProject.ext.android.debugAppName
+            buildConfigField("String", "API_URL", rootProject.ext.apiUrl.testUrl)
+        }
+        debugOfficial {
+            buildConfigField("String", "API_URL", rootProject.ext.apiUrl.releaseUrl)
+        }
+        releaseTest {
             minifyEnabled false
+            versionNameSuffix "-test"
+            buildConfigField("String", "API_URL", rootProject.ext.apiUrl.testUrl)
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        releaseOfficial {
+            zipAlignEnabled true
+            shrinkResources true
+            minifyEnabled true
+            buildConfigField("String", "API_URL", rootProject.ext.apiUrl.releaseUrl)
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        //修改apk包名
+        applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+                outputFileName = "app-${variant.name}-${defaultConfig.versionName}-${defaultConfig.versionCode}.apk"
+            }
         }
     }
 

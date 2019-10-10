@@ -6,7 +6,8 @@ package com.passon.aacproject;
  */
 public abstract class C {
 
-    public static final String BASE_URL = "https://api.com";
+    // 通过 gradle 动态设置 base_url, BuildConfig.API_URL
+//    public static final String BASE_URL = "https://api.com";
 
 
     public static final String EXTRA_DATA = "extra_data";
