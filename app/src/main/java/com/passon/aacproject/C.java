@@ -12,6 +12,7 @@ public abstract class C {
 
     public static final String EXTRA_DATA = "extra_data";
 
+    //Test CI
 
     /**
      * sharePreference Key
