@@ -29,7 +29,7 @@ android {
             buildConfigField("String", "API_URL", rootProject.ext.apiUrl.testUrl)
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        releaseOfficial {
+        release {
             zipAlignEnabled true
             shrinkResources true
             minifyEnabled true
