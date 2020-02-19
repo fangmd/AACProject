@@ -2,6 +2,7 @@ package com.passon.aacproject;
 
 import android.app.Application;
 import android.util.Log;
+import android.view.View;
 
 import com.passon.commonutils.CommonUtils;
 import com.passon.loglib.LoggerUtils;
@@ -25,6 +26,11 @@ public class App extends Application {
         Log.d("tag", "onCreate: ");
 
         initLib();
+
+        new View().setOnTouchListener();
+
+        String sourceDir = getApplicationInfo().sourceDir;
+        LoggerUtils.d(sourceDir);
     }
 
     private void initLib() {
